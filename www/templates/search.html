@@ -1,0 +1,11 @@
+<ion-view view-title="Select your MonkeyBar (currently selected {{selected}})">
+  <ion-content>
+    <div class="list">
+	    <a class="item item-thumbnail-left" href="#" ng-repeat="bn in items" ng-click="ex()">
+	      <img src="img/{{bn.image}}" >
+	      <h2>{{bn.name}}</h2>
+	      <p>{{bn.address}}</p>
+	    </a>
+   </div>
+  </ion-content>
+</ion-view>
