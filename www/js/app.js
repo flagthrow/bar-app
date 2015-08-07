@@ -37,7 +37,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: 'templates/search.html',
-        controller: 'SearchCtrl'
+        controller: 'SearchCtrl',
+        factory: 'SearchFact'
       }
     }
   })
@@ -46,7 +47,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/browse',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/browse.html',
+          controller: 'BrowseCtrl'
         }
       }
     })

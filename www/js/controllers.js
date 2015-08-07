@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ngCordova'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -61,9 +61,29 @@ angular.module('starter.controllers', [])
 				   {id: 2, name: 'A lot festival', address:'L\'Aquila (Italy)', image:'monkey.jpg'}
 				   ];
 	
-	$scope.selected = 'none';
+	$scope.selected = SearchFact.name;
 	
 	$scope.ex = function ex() {
-	    window.alert("selected!");
+	    window.alert(selected);
 	};
+})
+
+.factory('SearchFact', function($scope) {
+	return {
+	      name : 'giuseppe'
+	  };
+})
+
+.controller("BrowseCtrl", function($scope, $cordovaBarcodeScanner) {
+	 
+    $scope.scanBarcode = function() {
+        $cordovaBarcodeScanner.scan().then(function(imageData) {
+            alert(imageData.text);
+            console.log("Barcode Format -> " + imageData.format);
+            console.log("Cancelled -> " + imageData.cancelled);
+        }, function(error) {
+            console.log("An error happened -> " + error);
+        });
+    };
+ 
 });
